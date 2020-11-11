@@ -22,17 +22,21 @@ Util.onReady(function () {
         hocrProofreader.setZoom('original');
     });
 
-    document.getElementById('button-save').addEventListener('click', function () {
-        var hocr = hocrProofreader.getHocr();
+    // document.getElementById('button-save').addEventListener('click', function () {
+    //     var hocr = hocrProofreader.getHocr();
 
-        var request = new XMLHttpRequest();
-        request.open('POST', 'save.php');
-        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=utf-8');
-        request.send('hocr=' + encodeURIComponent(hocr));
-    });
+    //     var request = new XMLHttpRequest();
+    //     request.open('POST', 'save.php');
+    //     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=utf-8');
+    //     request.send('hocr=' + encodeURIComponent(hocr));
+    // });
+
+    // var hocrBaseUrl = 'demo/';
+    // var hocrUrl = hocrBaseUrl + 'demo.hocr';
 
     var hocrBaseUrl = 'demo/';
     var hocrUrl = hocrBaseUrl + 'demo.hocr';
+    console.log(hocrUrl);
 
     Util.get(hocrUrl, function (err, hocr) {
         if (err) return Util.handleError(err);

@@ -254,7 +254,7 @@ HocrProofreader.prototype.renderPage = function (pageNode) {
     this.layoutSvg.setAttribute('viewBox', pageOptions.bbox.join(' '));
     this.layoutWords.style.fontFamily = 'Liberation Serif, serif'; // TODO: use font from hOCR (per page)
 
-    this.layoutImage.setAttributeNS('http://www.w3.org/1999/xlink', 'href', this.hocrBaseUrl + pageOptions.image);
+    this.layoutImage.setAttributeNS('http://www.w3.org/1999/xlink', 'href', pageOptions.image);
 
     if (pageOptions.textangle) {
         // textangle is counter-clockwise, so we have to rotate the image clockwise - and transform-rotate() is clockwise:
