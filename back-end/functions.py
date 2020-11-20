@@ -11,19 +11,19 @@ import sys
 
 import pytesseract
 from pytesseract import image_to_pdf_or_hocr
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
 
 def get_image_url(input_url):
     try:
-        r = requests.get(input_url)
-        soup = BeautifulSoup(r.text)
+        # r = requests.get(input_url)
+        # soup = BeautifulSoup(r.text)
 
-        if 'project phaedra' in soup.text.lower().strip():
-            pid = soup.find('div', {'id': 'transcription-asset-wrapper'})['data-idsid']
-        else:
-            pid = input_url.split('/')[-1]
+        # if 'project phaedra' in soup.text.lower().strip():
+            # pid = soup.find('div', {'id': 'transcription-asset-wrapper'})['data-idsid']
+        # else:
+            # pid = input_url.split('/')[-1]
 
-        image_url = 'https://ids.si.edu/ids/deliveryService?max_w=2000&id=' + pid
+        image_url = 'https://ids.si.edu/ids/deliveryService?max_w=2000&id=' + input_url
         return image_url
     except Exception as e:
         print(e)
@@ -38,6 +38,6 @@ def get_hOCR(image_url):
     # get the hocr & parse. replace the image in the current text with the image_url
     hocr_output = image_to_pdf_or_hocr(img, extension='hocr')
     hocr = hocr_output.decode('utf-8')
-    soup = BeautifulSoup(hocr, parser='xml')
-    soup = BeautifulSoup(re.sub(r'image \"(.+?)\"', 'image ' + '"' + image_url + '"', str(soup)))
+    soup = BeautifulSoup(hocr, "xml")
+    soup = BeautifulSoup(re.sub(r'image \"(.+?)\"', 'image ' + '"' + image_url + '"', str(soup)), "xml")
     return soup
