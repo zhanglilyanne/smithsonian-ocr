@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>hOCR-Proofreader</title>
+    <title>Smithsonian Transcription</title>
     <link rel="stylesheet" href="fonts.css" />
     <link rel="stylesheet" href="main.css" />
     <link rel="stylesheet" href="hocr-proofreader.css" />
@@ -14,38 +14,13 @@
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-header">
-                <div class="logo">
-                    <!-- Logo -->
-                    <a href="#">hOCR Proofreader</a>
-
-                </div>
-            </div>
-
-            <div class="nav">
-                <ul class="nav-links">
-                    <li class="nav-item"><a href="#" class="nav-link">Learn More</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
     <div class="viewport">
 
-        <!-- <div class="navbar">
-        <div class="logo">hOCR-Proofreader</div>
-        <div class="nav-option">
-            About
-        </div>
-    </div> -->
-
         <div class="toolbar">
 
-
-            <div class="logo">Viewing Options</div>
-            <div class="separator"></div>
+            <div class="logo">✏️ Smithsonian Transcription</div>
+            <!-- <div class="separator"></div> -->
             <button id="toggle-layout-image" class="slide">Image/Text</button>
             <div class="separator"></div>
 
@@ -53,9 +28,16 @@
             <button id="zoom-page-full" class="slide">Full Page</button>
             <button id="zoom-page-width" class="slide">Page Width</button>
             <button id="zoom-original" class="slide">Original</button>
+            <a class="right" href="https://transcription.si.edu/about"><div class="right" style="margin-top: -3px;">🤔 Learn More</div></a>
 
-            <!-- <div class="separator"></div>
-        <button id="button-save">Save</button> -->
+            <a class="right" href="https://github.com/zhanglilyanne/smithsonian-ocr">
+                <div class="right">
+                    View on Github
+                </div>
+                <img class="right" src="github-icon.png" height="20" width="auto"/>
+            </a>
+
+            
         </div>
 
         <div id="layout-container" class="container"></div>
